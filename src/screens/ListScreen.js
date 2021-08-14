@@ -7,6 +7,7 @@ const ListScreen = () => {
 		{
 			name: 'Aaren',
 			number: '+233123456',
+			image: require('../../assets/rick.jpeg'),
 		},
 
 		{
@@ -26,7 +27,11 @@ const ListScreen = () => {
 				data={names}
 				renderItem={({ item }) => {
 					return (
-						<NameListItem name={item.name} number={item.number} />
+						<NameListItem
+							name={item.name}
+							number={item.number}
+							image={item.image}
+						/>
 					);
 				}}
 				keyExtractor={(item) => item.number}

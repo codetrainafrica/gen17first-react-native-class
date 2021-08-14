@@ -6,14 +6,11 @@ import {
 	SimpleLineIcons,
 } from '@expo/vector-icons';
 
-const NameListItem = ({ name, number }) => {
+const NameListItem = ({ name, number, image }) => {
 	return (
 		<View style={styles.container}>
 			<View style={styles.imageContainer}>
-				<Image
-					source={require('../../assets/rick.jpeg')}
-					style={styles.image}
-				/>
+				<Image source={image} style={styles.image} />
 			</View>
 
 			<View style={styles.detailsContainer}>
