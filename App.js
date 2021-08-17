@@ -7,7 +7,7 @@ import ListScreen from './src/screens/ListScreen';
 export default function App() {
 	return (
 		<View style={styles.container}>
-			<ListScreen />
+			<FormScreen />
 		</View>
 	);
 }

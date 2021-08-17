@@ -5,6 +5,7 @@ import {
 	StyleSheet,
 	TextInput,
 	TouchableOpacity,
+	ScrollView,
 } from 'react-native';
 
 const FormScreen = () => {
@@ -18,7 +19,7 @@ const FormScreen = () => {
 		console.log(form);
 	};
 	return (
-		<View style={styles.container}>
+		<ScrollView style={styles.container}>
 			<Text>Hello world</Text>
 
 			<TextInput
@@ -30,6 +31,67 @@ const FormScreen = () => {
 					handleOnChange('email', text);
 				}}
 				value={form.email}
+				placeholder="Email"
+			/>
+
+			<TextInput
+				style={styles.input}
+				secureTextEntry={true}
+				autoCompleteType="password"
+				autoCapitalize="none"
+				autoCorrect={false}
+				onChangeText={(text) => {
+					handleOnChange('password', text);
+				}}
+				value={form.password}
+			/>
+
+			<TextInput
+				style={styles.input}
+				secureTextEntry={true}
+				autoCompleteType="password"
+				autoCapitalize="none"
+				autoCorrect={false}
+				onChangeText={(text) => {
+					handleOnChange('password', text);
+				}}
+				value={form.password}
+			/>
+
+			<TextInput
+				style={styles.input}
+				secureTextEntry={true}
+				autoCompleteType="password"
+				autoCapitalize="none"
+				autoCorrect={false}
+				onChangeText={(text) => {
+					handleOnChange('password', text);
+				}}
+				value={form.password}
+			/>
+
+			<TextInput
+				style={styles.input}
+				secureTextEntry={true}
+				autoCompleteType="password"
+				autoCapitalize="none"
+				autoCorrect={false}
+				onChangeText={(text) => {
+					handleOnChange('password', text);
+				}}
+				value={form.password}
+			/>
+
+			<TextInput
+				style={styles.input}
+				secureTextEntry={true}
+				autoCompleteType="password"
+				autoCapitalize="none"
+				autoCorrect={false}
+				onChangeText={(text) => {
+					handleOnChange('password', text);
+				}}
+				value={form.password}
 			/>
 
 			<TextInput
@@ -47,7 +109,7 @@ const FormScreen = () => {
 			<TouchableOpacity style={styles.button} onPress={handleSubmit}>
 				<Text style={styles.buttonText}>Login</Text>
 			</TouchableOpacity>
-		</View>
+		</ScrollView>
 	);
 };
 
