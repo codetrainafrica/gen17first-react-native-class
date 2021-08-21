@@ -1,14 +1,111 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Image, Button, TextInput } from 'react-native';
+import {
+	StyleSheet,
+	Text,
+	View,
+	Image,
+	Button,
+	TextInput,
+	TouchableOpacity,
+} from 'react-native';
 import FormScreen from './src/screens/FormScreen';
+import HomeScreen from './src/screens/HomeScreen';
 import ListScreen from './src/screens/ListScreen';
+
+import { NavigationContainer } from '@react-navigation/native';
+
+//1. Import createstacknavigator
+import { createStackNavigator } from '@react-navigation/stack';
+import DetailScreen from './src/screens/DetailScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
 	return (
-		<View style={styles.container}>
-			<FormScreen />
-		</View>
+		<NavigationContainer>
+			<Stack.Navigator
+				screenOptions={{
+					// header: () => null,
+					headerStyle: {
+						backgroundColor: 'red',
+					},
+					headerTitleStyle: {
+						color: 'white',
+					},
+				}}
+			>
+				<Stack.Screen
+					options={{
+						// header: () => null,
+						title: 'Hello',
+						// headerStyle: {
+						// 	backgroundColor: 'red',
+						// },
+						// headerTitleStyle: {
+						// 	color: 'white',
+						// },
+						headerLeft: () => {
+							return (
+								<Text
+									style={{
+										color: 'white',
+										fontSize: 20,
+										marginHorizontal: 20,
+									}}
+								>
+									Left
+								</Text>
+							);
+						},
+
+						headerRight: () => {
+							return (
+								<Text
+									style={{
+										color: 'white',
+										fontSize: 20,
+										marginHorizontal: 20,
+									}}
+								>
+									Right
+								</Text>
+							);
+						},
+					}}
+					name="home"
+					component={HomeScreen}
+				/>
+				<Stack.Screen name="contactList" component={ListScreen} />
+				<Stack.Screen
+					options={({ navigation }) => {
+						return {
+							headerRight: () => {
+								return (
+									<TouchableOpacity
+										onPress={() =>
+											navigation.navigate('contactList')
+										}
+									>
+										<Text
+											style={{
+												color: 'white',
+												fontSize: 20,
+												marginHorizontal: 20,
+											}}
+										>
+											Contacts
+										</Text>
+									</TouchableOpacity>
+								);
+							},
+						};
+					}}
+					name="details"
+					component={DetailScreen}
+				/>
+			</Stack.Navigator>
+		</NavigationContainer>
 	);
 }
 
